@@ -1,0 +1,29 @@
+body {
+  background: #333;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main {
+  background: white;
+  padding: 10px;
+  box-shadow: 0 0 0 0.2;
+  border-radius: 0.5rem;
+}
+div {
+  padding: 10px;
+  border: solid 5px transparent;
+  input {
+    border: none;
+    border: solid 1px mediumslateblue;
+    height: 30px;
+  }
+}
+div:focus-within {
+  border-color: white;
+  border-style: dashed;
+  background: lightcoral;
+  color: white;
+}

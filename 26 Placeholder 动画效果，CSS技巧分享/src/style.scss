@@ -1,0 +1,59 @@
+@import 'open-props/postcss/style';
+@import 'open-props/postcss/normalize';
+
+:root {
+  font-family: var(--font-sans);
+  body {
+    background: #111827;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    gap: 20px;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+h1 {
+  font-size: var(--font-size-6);
+  text-align: center;
+  background-image: linear-gradient(to right, rgb(236, 72, 153), rgb(239, 68, 68), rgb(234, 179, 8));
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+#app {
+  padding: 50px;
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 0 25px rgba($color: #000000, $alpha: 0.2);
+  width: max-content;
+  height: max-content;
+  .form-group {
+    position: relative;
+    input {
+      outline: none;
+      border: solid 2px var(--teal-8);
+      background: none;
+      box-shadow: 0 0 3px rgba($color: #000000, $alpha: 0.3);
+      &:valid,
+      &:focus {
+        & ~ label {
+          top: -35%;
+          left: 0;
+        }
+      }
+    }
+    label {
+      color: var(--teal-8);
+      font-size: 0.5em;
+      position: absolute;
+      transition: all 0.3s;
+      top: 50%;
+      left: 1em;
+      transform: translateY(-50%);
+      padding: 2px;
+      pointer-events: none;
+    }
+  }
+}

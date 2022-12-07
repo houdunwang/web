@@ -1,0 +1,45 @@
+@import 'open-props/postcss/style';
+@import 'open-props/postcss/normalize';
+
+:root {
+  // font-family: var(--font-mono);
+  body {
+    background-color: var(--gray-9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+#app {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 1fr);
+  grid-auto-flow: column;
+  gap: 2em;
+  padding: 1em 2em;
+  background: var(--gray-8);
+  box-shadow: 0 0 3em rgba(0, 0, 0, 0.3);
+  border-radius: 1em;
+  position: relative;
+
+  div {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: all 0.3s ease-out 0s;
+    z-index: 1;
+    text-transform: uppercase;
+    &:last-child {
+      position: absolute;
+      background-color: var(--yellow-7);
+      height: 100%;
+      border-radius: 0.5em;
+      transform: scaleX(1.2);
+      z-index: 0;
+    }
+  }
+}

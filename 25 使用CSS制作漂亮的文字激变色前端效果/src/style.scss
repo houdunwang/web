@@ -1,0 +1,38 @@
+@import 'open-props/postcss/style';
+@import 'open-props/postcss/normalize';
+
+:root {
+  font-family: var(--font-sans);
+  body {
+    background: #111827;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    gap: 20px;
+  }
+}
+h1 {
+  font-size: var(--font-size-8);
+  text-align: center;
+  background-image: linear-gradient(
+    to right,
+    rgb(236, 72, 153),
+    rgb(239, 68, 68),
+    rgb(234, 179, 8)
+  );
+  color: transparent;
+  background-clip: text;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+h2 {
+  background-image: linear-gradient(
+    to right,
+    rgb(101, 163, 13),
+    rgb(253, 224, 71),
+    rgb(220, 38, 38)
+  );
+  background-clip: text;
+  color: transparent;
+}

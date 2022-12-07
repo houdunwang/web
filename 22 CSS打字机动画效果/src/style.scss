@@ -1,0 +1,48 @@
+@import 'open-props/postcss/style';
+@import 'open-props/postcss/normalize';
+
+:root {
+  font-family: var(--font-mono);
+  body {
+    background-color: var(--gray-3);
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+#app {
+  width: max-content;
+  color: var(--gray-9);
+  font-size: var(--font-size-8);
+  position: relative;
+  &::before,
+  &::after {
+    content: '';
+    background: var(--gray-3);
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    animation: typewriter 3s steps(20) forwards;
+  }
+  &::after {
+    width: 5px;
+    border-radius: 1em;
+    background-color: var(--gray-9);
+    animation: typewriter 3s steps(20) forwards, flashing 0.3s ease-out forwards infinite;
+  }
+}
+
+@keyframes typewriter {
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes flashing {
+  to {
+    opacity: 0;
+  }
+}

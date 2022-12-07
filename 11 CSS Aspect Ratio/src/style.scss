@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+:root {
+  background: #333;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+}
+#app {
+  width: 500px;
+  border: solid 3px greenyellow;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+  }
+}

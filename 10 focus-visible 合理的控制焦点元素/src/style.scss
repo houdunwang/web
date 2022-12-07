@@ -1,0 +1,48 @@
+:root {
+  font-size: 14px;
+  font-family: hack;
+  body {
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    main {
+      width: 300px;
+      padding: 2rem 3rem;
+      background: white;
+      border-radius: 0.2rem;
+      box-shadow: 0 0 1rem rgba(#555, 0.2);
+      button {
+        background: #333;
+        border: none;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        border-radius: 0.3rem;
+      }
+      section {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5rem 0;
+        margin-bottom: 1rem;
+
+        div {
+          font-weight: bold;
+          color: #555;
+        }
+        input {
+          height: 30px;
+        }
+      }
+      :focus {
+        // outline: solid 3px lightcoral;
+        // outline-offset: -1px;
+        outline: none;
+      }
+      // :focus:not(:focus-visible) {
+      //   outline: none;
+      // }
+    }
+  }
+}

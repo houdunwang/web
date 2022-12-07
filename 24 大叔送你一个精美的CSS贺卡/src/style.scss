@@ -1,0 +1,85 @@
+@import 'open-props/postcss/style';
+@import 'open-props/postcss/normalize';
+
+:root {
+  font-family: var(--font-mono);
+  body {
+    background-color: var(--gray-8);
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+body {
+  cursor: pointer;
+  &:hover {
+    #app {
+      transform: perspective(900px) rotate3d(3, 1, 1, 360deg);
+      section {
+        opacity: 1;
+      }
+      &::before {
+        transform: rotateY(-180deg);
+      }
+      &::after {
+        transform: rotateY(180deg);
+      }
+    }
+  }
+}
+
+#app {
+  height: 200px;
+  width: 350px;
+  border-radius: 1em;
+  transform-style: preserve-3d;
+  transition: all 1s;
+  display: grid;
+  background: linear-gradient(to right, rgb(239, 68, 68), rgb(153, 27, 27));
+  section {
+    display: grid;
+    place-items: center;
+    color: yellow;
+    transition: all 0.3s;
+    opacity: 0;
+    img {
+      width: 50px;
+    }
+    h2 {
+      color: var(--yellow-5);
+      font-size: 2em;
+    }
+  }
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    background: linear-gradient(
+      to right,
+      rgb(236, 72, 153),
+      rgb(239, 68, 68),
+      rgb(234, 179, 8)
+    );
+    width: 150px;
+    height: 150px;
+    border: solid 10px var(--yellow-3);
+    border-radius: 50%;
+    font-size: var(--font-size-8);
+    color: var(--yellow-3);
+    display: grid;
+    place-content: center;
+    transition: all 1s;
+  }
+  &::before {
+    content: '新年';
+    transform-origin: left;
+    place-self: center start;
+  }
+  &::after {
+    content: '快乐';
+    transform-origin: right;
+    place-self: center right;
+  }
+}

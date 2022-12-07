@@ -1,0 +1,31 @@
+@import 'open-props/postcss/style';
+@import 'open-props/postcss/normalize';
+
+:root {
+  font-family: var(--font-mono);
+  body {
+    background-color: var(--gray-9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+#app {
+  width: 500px;
+  height: 500px;
+  background-color: #333;
+  position: relative;
+
+  section {
+    width: 300px;
+    height: 300px;
+    background-color: var(--orange-5);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

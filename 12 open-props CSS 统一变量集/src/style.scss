@@ -1,0 +1,18 @@
+@import 'https://unpkg.com/open-props@1.5.0/open-props.min.css';
+@import 'https://unpkg.com/open-props/normalize.min.css';
+:root {
+  font-family: var(--font-mono);
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+#app {
+  h1 {
+    color: var(--violet-11);
+  }
+}

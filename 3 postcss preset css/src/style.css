@@ -1,0 +1,17 @@
+@custom-selector :--title h1, h2, h3;
+@custom-media --media-phone (width<=768px);
+@custom-media --sm (width>=640px);
+@custom-media --md (width>=768px);
+@custom-media --lg (width>=1024px);
+@custom-media --xl (width>=1280px);
+@custom-media --2xl (width>=1536px);
+
+:--title {
+  color: #333;
+  @media (--sm) {
+    color: blue;
+  }
+  @media (--md) {
+    color: green;
+  }
+}
