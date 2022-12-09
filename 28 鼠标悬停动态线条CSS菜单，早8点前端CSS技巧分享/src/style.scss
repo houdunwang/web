@@ -1,0 +1,47 @@
+@import 'open-props/postcss/style';
+@import 'open-props/postcss/normalize';
+
+:root {
+  font-family: var(--font-sans);
+  body {
+    background-color: var(--gray-9);
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    width: 100vw;
+  }
+}
+
+#app {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 1fr);
+  grid-auto-flow: column;
+  gap: 2em;
+  a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    padding: 0 10px;
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
+    &::after {
+      content: '';
+      transition: all 0.3s ease;
+      position: absolute;
+      height: 2px;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      background-color: var(--purple-5);
+    }
+  }
+}
+
+@keyframes hd {
+  to {
+    width: 100%;
+  }
+}
