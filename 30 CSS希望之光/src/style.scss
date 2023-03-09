@@ -1,0 +1,35 @@
+@import 'open-props/postcss/style';
+@import 'open-props/postcss/normalize';
+
+body {
+  background-color: var(--gray-9);
+  min-height: 100vh;
+  width: 100vw;
+  div {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    border-radius: 50%;
+    margin: 0 5px;
+    display: inline-block;
+    background-color: #4da6e5;
+    box-shadow: 0 0 50px 5px #79bcec, 0 0 150px 5px #a6d2f2;
+
+    &:nth-of-type(even) {
+      background-color: #df208f;
+      box-shadow: 0 0 50px 5px #df208f,
+        0 0 150px 5px #df208f;
+    }
+    animation: hd 5s linear infinite;
+    animation-duration: calc(300s / var(--duration));
+  }
+}
+
+@keyframes hd {
+  from {
+    transform: translateY(100vh) scale(0);
+  }
+  to {
+    transform: translateY(-100vh) scale(1);
+  }
+}
