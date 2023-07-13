@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#app {
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  width: 900px;
+  height: 200vh;
+  background: #222f3e;
+  padding: 80px;
+}
+
+#hd {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  background: #1dd1a1;
+}
+
+#xj {
+  width: 100vw;
+  height: 100px;
+  background: goldenrod;
+  font-size: min(4vw, 1rem);
+}/*# sourceMappingURL=style.css.map */
