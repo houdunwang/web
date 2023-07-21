@@ -11,19 +11,23 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: darkslateblue;
 }
 
 main {
   --width: 60px;
   --height: 60px;
+  background-color: white;
   overflow: hidden;
   width: var(--width);
   height: 300px;
-  border: solid 1px #ddd;
   transition: 0.5s;
   &:has(input:checked) {
     width: 400px;
   }
+  // header label > div:not(.abc) {
+  //   background-color: red;
+  // }
   header {
     border-bottom: solid 1px #ddd;
     // input:checked + .icon {
@@ -53,6 +57,9 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
+      // &:not(:has(+ input:checked)) {
+      //   background-color: red;
+      // }
       &::after,
       &::before {
         content: '';

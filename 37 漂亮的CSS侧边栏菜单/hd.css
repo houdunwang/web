@@ -11,15 +11,16 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: darkslateblue;
 }
 
 main {
   --width: 60px;
   --height: 60px;
+  background-color: white;
   overflow: hidden;
   width: var(--width);
   height: 300px;
-  border: solid 1px #ddd;
   transition: 0.5s;
 }
 main:has(input:checked) {

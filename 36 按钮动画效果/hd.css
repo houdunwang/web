@@ -5,7 +5,7 @@
 }
 
 body {
-  background: #f5f5f5;
+  background-color: darkslateblue;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,6 +17,7 @@ body {
   width: 100px;
   height: 100px;
   border: solid 1px #ddd;
+  background-color: white;
   display: flex;
   padding: 10px;
   justify-content: flex-start;
