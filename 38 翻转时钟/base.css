@@ -45,11 +45,10 @@ main > section > div::before, main > section > div::after {
   text-align: center;
   font: bold 160px arial;
   overflow: hidden;
-  color: white;
-  background-color: #000;
+  color: #000;
 }
 main > section > div::before {
-  content: attr(data-after);
+  content: attr(data-before);
   line-height: 160px;
 }
 main > section > div::after {
@@ -58,6 +57,7 @@ main > section > div::after {
 }
 
 main > section > div:nth-child(2) {
+  opacity: 0;
   width: 100px;
   height: 80px;
   transform-style: preserve-3d;
@@ -68,7 +68,6 @@ main > section > div:nth-child(2) {
 main > section > div:nth-child(2)::before {
   transform: rotateX(180deg);
   line-height: 0;
-  background-color: #000;
 }
 main > section > div:nth-child(2)::after {
   transform: translateY(-100%);
@@ -76,7 +75,7 @@ main > section > div:nth-child(2)::after {
 }
 
 main > section {
-  perspective: 200px;
+  perspective: 100px;
 }
 
 main > section > div:nth-child(2).flipDown {

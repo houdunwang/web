@@ -1,45 +1,57 @@
-class FlipClock {
+class FlipClock extends FlipNumber {
   main
-  nums
   divs
-  constructor(el) {
-    this.main = document.querySelector(el)
+  intervalId
+  constructor(options) {
+    super(options)
+    this.main = document.querySelector(options.el)
+    this.addCssElement()
   }
 
+  addCssElement() {
+    document.head.insertAdjacentHTML(
+      'afterbegin',
+      `
+    <link rel="stylesheet" href="${this.options.style}.css" /> 
+    `,
+    )
+  }
   render() {
     this.clock()
-    setInterval(() => {
-      this.getTimes()
+    this.intervalId = setInterval(() => {
+      this.getNums()
       this.updateDivNumber()
-    }, 20)
+      console.log('runing........')
+      if (this.nums.filter((n) => n > 0).length == 0) {
+        clearInterval(this.intervalId)
+      }
+    }, 500)
   }
 
+  stop() {
+    clearInterval(this.intervalId)
+  }
+
+  //执行div的渲染
   updateDivNumber() {
     this.divs.forEach((divs, index) => {
-      divs.forEach((div) => {
-        const num = this.nums[index]
-        //3 4
-        if (div.dataset.before != num) {
-          div.classList.add('flipDown')
-        }
-        div.addEventListener('animationend', () => {
-          divs.forEach((div) => {
-            div.dataset.before = num
-            const after = num + 1
-            if (index % 2) {
-              div.dataset.after = after > 9 ? 0 : after
-            } else {
-              div.dataset.after = after > 6 ? 0 : after
-            }
-          })
-          div.classList.remove('flipDown')
+      const div = divs[1]
+      const { before, after } = this.getNextNum(index)
+      if (Number(div.dataset.before) !== before) {
+        div.classList.add('flipDown')
+      }
+      div.addEventListener('animationend', () => {
+        divs.forEach((div) => {
+          div.dataset.before = before
+          div.dataset.after = after
         })
+        div.classList.remove('flipDown')
       })
     })
   }
 
   clock() {
-    this.getTimes()
+    this.getNums()
     this.createSectionElement()
     this.getDivs()
   }
@@ -50,22 +62,15 @@ class FlipClock {
     ).map((section) => section.querySelectorAll('div'))
   }
 
-  getTimes() {
-    this.nums = new Date()
-      .toLocaleTimeString()
-      .replaceAll(':', '')
-      .split('')
-      .map((n) => +n)
-  }
-
   createSectionElement() {
     this.nums.forEach((num, index) => {
+      const { before, after } = this.getNextNum(index)
       this.main.insertAdjacentHTML(
         'beforeend',
         `
 			<section>
-				<div data-before="" data-after=""></div>
-				<div data-before="" data-after=""></div>
+				<div data-before="${before}" data-after="${after}"></div>
+				<div data-before="${before}" data-after="${after}"></div>
 			</section> 
 		`,
       )
@@ -75,6 +80,3 @@ class FlipClock {
     })
   }
 }
-
-const instance = new FlipClock('#hd')
-instance.render()

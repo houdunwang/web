@@ -39,11 +39,11 @@ main > section > div {
     text-align: center;
     font: bold $height arial;
     overflow: hidden;
-    color: white;
-    background-color: $bgColor;
+    color: #000;
+    // background-color: $bgColor;
   }
   &::before {
-    content: attr(data-after);
+    content: attr(data-before);
     line-height: $height;
   }
   &::after {
@@ -52,6 +52,8 @@ main > section > div {
   }
 }
 main > section > div:nth-child(2) {
+  // display: none;
+  opacity: 0;
   @include size($width, $height/2);
   transform-style: preserve-3d;
   backface-visibility: hidden;
@@ -60,7 +62,7 @@ main > section > div:nth-child(2) {
   &::before {
     transform: rotateX(180deg);
     line-height: 0;
-    background-color: $bgColor;
+    // background-color: $bgColor;
   }
   &::after {
     transform: translateY(-100%);
@@ -68,7 +70,7 @@ main > section > div:nth-child(2) {
   }
 }
 main > section {
-  perspective: 200px;
+  perspective: 100px;
 }
 main > section > div:nth-child(2).flipDown {
   animation-name: flipDown;

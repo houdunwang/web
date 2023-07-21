@@ -5,18 +5,32 @@
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="hd.css" />
-    <script src="hd.js" defer></script>
+    <!-- <link rel="stylesheet" href="hd.css" /> -->
+    <!-- <link rel="stylesheet" href="base.css" /> -->
+    <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.7/dayjs.min.js"></script>
+    <script src="FlipNumber.js"></script>
+    <script src="hd.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.7/plugin/duration.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/dayjs/1.11.7/dayjs.min.js"></script>
   </head>
   <body>
-    <main id="hd">
-      <!-- <section>
-        <div data-before="3" data-after="4"></div>
-        <div data-before="3" data-after="4"></div>
-      </section> -->
-    </main>
-    <script></script>
+    <main id="hd"></main>
+    <script>
+      const instance = new FlipClock({
+        el: '#hd',
+        // style: 'base',
+        type: 'timing',
+        timing: {
+          // hour: 2,
+          // minute: 8,
+          second: 100,
+        },
+      })
+      instance.render()
+
+      // setTimeout(() => {
+      //   instance.stop()
+      // }, 3000)
+    </script>
   </body>
 </html>
