@@ -1,0 +1,91 @@
+@import 'vars';
+@import 'mixin';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1abc9c;
+  @include size(100vw, 100vh);
+  @include flex();
+}
+
+main {
+  display: flex;
+  gap: 10px;
+}
+main > section {
+  @include size($width, $height);
+  position: relative;
+  // perspective: 20px;
+  // transform-style: preserve-3d;
+}
+main > p::after {
+  content: ':';
+  display: block;
+  @include size(50px, $height);
+  font: bold $height arial;
+  text-align: center;
+  line-height: $height;
+}
+main > section > div {
+  position: absolute;
+  &::before,
+  &::after {
+    display: block;
+    border-radius: 5px;
+    @include size($width, $height/2);
+    text-align: center;
+    font: bold $height arial;
+    overflow: hidden;
+    color: white;
+    background-color: $bgColor;
+  }
+  &::before {
+    content: attr(data-after);
+    line-height: $height;
+  }
+  &::after {
+    content: attr(data-before);
+    line-height: 0;
+  }
+}
+main > section > div:nth-child(2) {
+  @include size($width, $height/2);
+  transform-style: preserve-3d;
+  transition: 0.5s;
+  transform-origin: bottom;
+  &::before {
+    transform: rotateX(180deg);
+    backface-visibility: hidden;
+    line-height: 0;
+    background-color: $bgColor;
+  }
+  &::after {
+    backface-visibility: hidden;
+    transform: translateY(-100%);
+    line-height: $height;
+  }
+}
+main > section {
+  perspective: 120px;
+  transform-style: preserve-3d;
+}
+main > section > div:nth-child(2).flipDown {
+  animation-name: flipDown;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+
+// main > section:hover > div:nth-child(2) {
+//   transform: rotateX(-180deg);
+// }
+
+@keyframes flipDown {
+  to {
+    transform: rotateX(-180deg);
+  }
+}

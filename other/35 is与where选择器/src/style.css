@@ -1,0 +1,15 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+section :is(h1, h2, h3, a) {
+  color: darkseagreen;
+}
+
+h1:is(h1):is(h1) {
+  color: red;
+}
